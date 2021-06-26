@@ -1,0 +1,37 @@
+﻿DEFINE($HWID, HGET($_xmouse, $_ymouse))
+DEFINE($XPosTable, 1080)     
+DEFINE($YPosTable, 126)  
+DEFINE($XSizeTable, 409)     
+DEFINE($YSizeTable, 460)
+DEFINE($ScreenAccept, 0)
+DEFINE($IsExit, 0)
+
+HSET($HWID,1)
+
+WHILE($IsExit = 0)
+   
+   DEFINE($ArrKeys, 0)
+   GETKEYSDOWN($ArrKeys)
+    
+   FOR($a = 0,$a < ARRSIZE($ArrKeys))
+      SWITCH($ArrKeys[$a])
+      CASE(#P)
+         IF($ScreenAccept = 0)
+            GETSCREEN
+            SCREENSHOTEX($XPosTable, $YPosTable, $XPosTable + $XSizeTable, $YPosTable + $YSizeTable, "ART", 0)
+            $ScreenAccept = 1
+         END_IF
+			CASE(#S)                     
+         $IsExit = 1
+      DEFAULT
+         IF($ScreenAccept = 1)
+            $ScreenAccept = 0
+         END_IF   
+			END_SWITCH	          
+   END_CYC
+   WAITMS(5)
+END_CYC
+
+
+HSET($HWID,0)
+HALT
