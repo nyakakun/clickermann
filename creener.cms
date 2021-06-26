@@ -21,13 +21,13 @@ WHILE($IsExit = 0)
             SCREENSHOTEX($XPosTable, $YPosTable, $XPosTable + $XSizeTable, $YPosTable + $YSizeTable, "ART", 0)
             $ScreenAccept = 1
          END_IF
-			CASE(#S)                     
+      CASE(#S)                     
          $IsExit = 1
       DEFAULT
          IF($ScreenAccept = 1)
             $ScreenAccept = 0
          END_IF   
-			END_SWITCH	          
+      END_SWITCH	          
    END_CYC
    WAITMS(5)
 END_CYC
