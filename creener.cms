@@ -6,14 +6,14 @@ DEFINE($YSizeTable, 460)
 DEFINE($ScreenAccept, 0)
 DEFINE($IsExit, 0)
 
-HSET($HWID,1)
+HSET($HWID, 1)
 
 WHILE($IsExit = 0)
    
    DEFINE($ArrKeys, 0)
    GETKEYSDOWN($ArrKeys)
     
-   FOR($a = 0,$a < ARRSIZE($ArrKeys))
+   FOR($a = 0, $a < ARRSIZE($ArrKeys))
       SWITCH($ArrKeys[$a])
       CASE(#P)
          IF($ScreenAccept = 0)
@@ -33,5 +33,5 @@ WHILE($IsExit = 0)
 END_CYC
 
 
-HSET($HWID,0)
+HSET($HWID, 0)
 HALT
