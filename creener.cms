@@ -32,6 +32,6 @@ WHILE($IsExit = 0)
    WAITMS(5)
 END_CYC
 
-
 HSET($HWID, 0)
+
 HALT
